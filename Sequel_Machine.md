@@ -6,9 +6,11 @@ Fecha: 2 de septiembre de 2026
 1. Resumen Ejecutivo
 
 En este informe documento mi proceso para comprometer la máquina "Sequel" de Hack The Box. Durante la evaluación, identifiqué que el servidor exponía públicamente su servicio de base de datos MariaDB con una configuración insegura. Esto me permitió acceder con privilegios máximos sin necesidad de autenticación y extraer la flag objetivo.
+
 2. Reconocimiento y Escaneo
 
 Comencé la evaluación realizando un escaneo de puertos y servicios sobre la IP del objetivo para descubrir su superficie de ataque. Para esto, ejecuté en mi terminal el comando nmap -sV -sC -p- <IP_OBJETIVO> con el fin de buscar versiones, lanzar los scripts básicos y analizar todos los puertos disponibles. El resultado de este escaneo me permitió identificar que únicamente el puerto 3306/TCP se encontraba abierto, el cual estaba ejecutando el servicio de base de datos MySQL/MariaDB.
+
 3. Explotación y Acceso
 
 Al observar este servicio expuesto, mi primer paso fue comprobar si existían credenciales por defecto o nulas, lo cual es una falla común en entornos mal configurados. Para intentar autenticarme remotamente como el usuario administrador sin proporcionar ninguna contraseña, utilicé el cliente estándar y ejecuté el comando mysql -h <IP_OBJETIVO> -u root.
